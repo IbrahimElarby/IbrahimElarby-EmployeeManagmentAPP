@@ -1,0 +1,77 @@
+
+<div class="container">
+  <div class="header">
+    <h1>Employee List</h1>
+    <button mat-raised-button color="primary" routerLink="/add">Add New Employee</button>
+  </div>
+
+  <div class="filters-container">
+    <!-- Search Input -->
+    <mat-form-field>
+      <input matInput 
+            [(ngModel)]="searchTerm"
+            (keyup.enter)="onSearch()"
+            placeholder="Search all employees...">
+    </mat-form-field>
+
+  <!-- Position Filter -->
+  <mat-form-field>
+    <mat-label>Position</mat-label>
+    <mat-select [(value)]="positionFilter" (selectionChange)="onSearch()">
+      <mat-option value="">All Positions</mat-option>
+      <mat-option *ngFor="let position of positions" [value]="position">
+        {{ position }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  </div>
+
+    <table mat-table [dataSource]="employees" class="mat-elevation-z8">
+      <!-- Name Column -->
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef> First Name </th>
+        <td mat-cell *matCellDef="let employee"> {{employee.firstName}} </td>
+      </ng-container>
+  
+      <!-- Last Name Column -->
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef> Last Name </th>
+        <td mat-cell *matCellDef="let employee"> {{employee.lastName}} </td>
+      </ng-container>
+  
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let employee"> {{employee.email}} </td>
+      </ng-container>
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> Position </th>
+        <td mat-cell *matCellDef="let employee"> {{employee.position}} </td>
+      </ng-container>
+  
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let employee">
+          <button mat-icon-button color="primary" [routerLink]="['/edit', employee.id]">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteEmployee(employee.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <!-- Pagination -->
+<mat-paginator [length]="totalItems"
+[pageSize]="pageSize"
+[pageSizeOptions]="[5, 10, 25]"
+(page)="onPageChange($event)">
+</mat-paginator>
+  </div>
+  

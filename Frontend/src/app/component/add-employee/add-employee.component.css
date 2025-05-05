@@ -1,0 +1,76 @@
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    background: #f5f7fb;
+    min-height: 100vh;
+  }
+  
+  .form-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    padding: 2rem;
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .form-title {
+    color: #2d3436;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .form-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f9fafc;
+    border-radius: 8px;
+  }
+  
+  .section-title {
+    color: #4a5568;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e2e8f0;
+  }
+  
+  .submit-button {
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+  }
+  
+  .submit-button:hover {
+    transform: translateY(-1px);
+  }
+  
+  .cancel-button {
+    border-color: #e2e8f0;
+  }
+  
+  .mat-icon {
+    color: #718096;
+  }

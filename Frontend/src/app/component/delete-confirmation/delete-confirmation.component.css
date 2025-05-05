@@ -1,0 +1,9 @@
+mat-dialog-content {
+    padding: 20px 24px;
+    font-size: 16px;
+  }
+  
+  mat-dialog-actions {
+    padding: 10px 24px 20px;
+    gap: 10px;
+  }

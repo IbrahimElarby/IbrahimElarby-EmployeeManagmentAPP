@@ -1,0 +1,83 @@
+<div class="form-wrapper">
+  <div class="form-card">
+    <h2 class="form-title">Add New Employee</h2>
+    
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="employee-form">
+      <!-- Personal Information Section -->
+      <div class="form-section">
+        <h3 class="section-title">Personal Information</h3>
+        <div class="form-grid">
+          <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="firstName" required>
+            <mat-icon matPrefix>person</mat-icon>
+            <mat-error *ngIf="employeeForm.get('firstName')?.hasError('required')">
+              Please enter a first name
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="lastName" required>
+            <mat-icon matPrefix>people</mat-icon>
+            <mat-error *ngIf="employeeForm.get('lastName')?.hasError('required')">
+              Please enter a last name
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Work Information Section -->
+      <div class="form-section">
+        <h3 class="section-title">Work Information</h3>
+        <div class="form-grid">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email" required>
+            <mat-icon matPrefix>email</mat-icon>
+            <mat-error *ngIf="employeeForm.get('email')?.hasError('required')">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="employeeForm.get('email')?.hasError('email')">
+              Please enter a valid email address
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Position</mat-label>
+            <mat-select formControlName="position" required>
+              <mat-option *ngFor="let position of positions" [value]="position">
+                {{ position }}
+              </mat-option>
+            </mat-select>
+            <mat-icon matPrefix>work</mat-icon>
+            <mat-error *ngIf="employeeForm.get('position')?.hasError('required')">
+              Please select a position
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Form Actions -->
+      <div class="form-actions">
+        <button mat-stroked-button 
+                type="button" 
+                routerLink="/"
+                class="cancel-button">
+          <mat-icon>arrow_back</mat-icon>
+          Cancel
+        </button>
+        
+        <button mat-raised-button 
+                color="primary" 
+                type="submit"
+                [disabled]="employeeForm.invalid || isSubmitting"
+                class="submit-button">
+          <mat-icon *ngIf="!isSubmitting">save</mat-icon>
+          <mat-spinner *ngIf="isSubmitting" diameter="20"></mat-spinner>
+          {{ isSubmitting ? 'Saving...' : 'Save Employee' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
