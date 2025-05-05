@@ -1,0 +1,85 @@
+# .NET Core
+**/[Bb]in/
+**/[Oo]bj/
+**/packages/
+**/.nuget/
+*.user
+*.suo
+*.userprefs
+*.nupkg
+*.nuspec
+*.dotCover
+*.pidb
+*.cache
+*.swp
+*.lock.json
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Rider
+.idea/
+*.sln.iml
+
+# Local development
+appsettings.Development.json
+*.db
+*.db-shm
+*.db-wal
+*.localdb
+*.mdf
+*.ldf
+
+# Docker
+.dockerignore
+docker-compose.*.yml
+docker-compose.*.yaml
+
+# Misc
+*.log
+*.sql
+*.sqlite
+*.DS_Store
+Thumbs.db
+
+# VS
+.vs/
+*.VC.db
+*.VC.VC.opendb
+
+# Test Results
+**/[Tt]est[Rr]esult*/
+**/[Bb]uild[Ll]og.*
+*.trx
+*.coverage
+.coverage
+coverage.*.json
+*.coverage.xml
+/opencover/
+
+# Code coverage
+coverage/
+testresults/
+
+# Local development (HTTPS certificate)
+.pfx
+*.pfx
+.pem
